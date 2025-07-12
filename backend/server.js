@@ -48,7 +48,7 @@ app.use(compression());
 app.use(morgan('combined'));
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://your-frontend-domain.vercel.app'] 
+        ? ['https://wordtopdf-six.vercel.app/'] 
         : ['http://localhost:3000', 'http://127.0.0.1:3000'],
     credentials: true
 }));
