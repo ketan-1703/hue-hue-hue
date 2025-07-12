@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word to PDF Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="converter-card">
+                    <div class="text-center mb-4">
+                        <h1 class="display-4 fw-bold text-primary">
+                            <i class="fas fa-file-word me-3"></i>
+                            Word to PDF Converter
+                        </h1>
+                        <p class="lead text-muted">Convert your Word documents to PDF while preserving formatting and Indian language content</p>
+                    </div>
+
+                    <div class="upload-section">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                                    <h4>Drop your .docx file here</h4>
+                                    <p class="text-muted">or click to browse</p>
+                                    <input type="file" id="fileInput" name="document" accept=".docx" class="file-input" required>
+                                    <button type="button" class="btn btn-outline-primary mt-3" onclick="document.getElementById('fileInput').click()">
+                                        <i class="fas fa-folder-open me-2"></i>Choose File
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="file-info mt-3" id="fileInfo" style="display: none;">
+                                <div class="alert alert-info d-flex align-items-center">
+                                    <i class="fas fa-file-word me-2"></i>
+                                    <div>
+                                        <strong id="fileName"></strong>
+                                        <br>
+                                        <small class="text-muted" id="fileSize"></small>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-outline-danger ms-auto" onclick="removeFile()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg" id="convertBtn" disabled>
+                                    <i class="fas fa-magic me-2"></i>Convert to PDF
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="progress-section mt-4" id="progressSection" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 role="progressbar" style="width: 0%" id="progressBar"></div>
+                        </div>
+                        <p class="text-center mt-2" id="progressText">Preparing conversion...</p>
+                    </div>
+
+                    <div class="result-section mt-4" id="resultSection" style="display: none;">
+                        <div class="alert alert-success">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle fa-2x text-success me-3"></i>
+                                <div>
+                                    <h5 class="mb-1">Conversion Successful!</h5>
+                                    <p class="mb-2">Your document has been converted to PDF.</p>
+                                    <a href="#" class="btn btn-success" id="downloadBtn">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="error-section mt-4" id="errorSection" style="display: none;">
+                        <div class="alert alert-danger">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle fa-2x text-danger me-3"></i>
+                                <div>
+                                    <h5 class="mb-1">Conversion Failed</h5>
+                                    <p class="mb-0" id="errorMessage"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section mt-5">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="feature-card">
+                                <i class="fas fa-globe fa-2x text-primary mb-3"></i>
+                                <h5>Indian Language Support</h5>
+                                <p class="text-muted">Preserves Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi, and other Indian languages</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="feature-card">
+                                <i class="fas fa-paint-brush fa-2x text-primary mb-3"></i>
+                                <h5>Format Preservation</h5>
+                                <p class="text-muted">Maintains original formatting, fonts, and layout</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="feature-card">
+                                <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
+                                <h5>Secure Processing</h5>
+                                <p class="text-muted">Files are automatically deleted after conversion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
