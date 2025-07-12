@@ -231,7 +231,7 @@ class WordToPdfConverter {
             this.apiEndpoint = 'http://localhost:3000/convert';
         } else {
             // For production - update with your actual backend URL
-            this.apiEndpoint = 'https://your-backend-url.com/convert';
+            this.apiEndpoint = 'https://wordtopdf-j9qq.onrender.com';
         }
     }
 }
