@@ -228,7 +228,7 @@ class WordToPdfConverter {
     updateApiEndpoint() {
         // For local development
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            this.apiEndpoint = 'http://localhost:3000/convert';
+            this.apiEndpoint = 'https://wordtopdf-j9qq.onrender.com';
         } else {
             // For production - update with your actual backend URL
             this.apiEndpoint = 'https://wordtopdf-j9qq.onrender.com';
